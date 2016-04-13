@@ -41,14 +41,5 @@ _adaptUid
 echo "Setting up runtime environment..."
 _setupRuntime
 
-case "$1" in
-    run)
-        echo "Starting supervisord..."
-        /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
-        ;;
-    *)
-        exec $@
-        ;;
-esac
-
+exec su dev -c "cd ${APP_HOME};$@"
 exit 0
