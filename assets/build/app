@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+#
+set -e
+
+cat > /etc/supervisor/conf.d/app.conf <<EOF
+[program:app]
+priority = 20
+directory = /app
+command = /usr/local/bin/npm run-script dev
+user = dev
+autostart = false
+autorestart = true
+stdout_logfile = ${LOG_DIR}/supervisor/%(program_name)s.log
+stderr_logfile = ${LOG_DIR}/supervisor/%(program_name)s.log
+EOF
