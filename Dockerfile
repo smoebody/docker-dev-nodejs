@@ -8,7 +8,7 @@ CMD ["run"]
 # adding essentials
 RUN apt-get update \
  && apt-get -y dist-upgrade \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y wget less vim locales
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y wget less vim locales graphicsmagick
 
 
 ENV APP_HOME /app
