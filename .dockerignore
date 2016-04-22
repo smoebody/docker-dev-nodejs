@@ -1,4 +1,5 @@
 .gitignore
+.git
+**/.keepme
 LICENSE
-README
-fig.yml
+Readme.md
