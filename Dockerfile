@@ -1,5 +1,5 @@
 ### install node ###
-FROM node:4
+FROM node:latest
 MAINTAINER u.seltmann@gmail.com
 VOLUME ["/app", "/home/dev"]
 ENTRYPOINT ["/docker/init"]
