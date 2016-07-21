@@ -41,6 +41,6 @@ _adaptUid
 echo "Setting up runtime environment..."
 _setupRuntime
 
-exec su -l dev -c "cd ${APP_HOME};$@"
+exec su dev -c "cd ${APP_HOME};$@"
 
 exit 0
