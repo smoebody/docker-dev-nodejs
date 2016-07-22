@@ -1,7 +1,7 @@
 ### install node ###
 FROM node:latest
 MAINTAINER ulf.seltmann@metaccount.de
-VOLUME ["/app", "/home/dev/.npm-cache"]
+VOLUME ["/app", "/home/dev/.npm"]
 ENTRYPOINT ["/docker/init"]
 CMD ["run"]
 ENV APP_HOME=/app
