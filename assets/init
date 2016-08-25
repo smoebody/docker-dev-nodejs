@@ -27,8 +27,8 @@ case "$1" in
         exec su ${APP_USER} -c "cd ${APP_HOME};npm start"
         ;;
     *)
+        echo "Executing custom command ..."
         exec su ${APP_USER} -c "cd ${APP_HOME};$@"
-        fi;
         ;;
 esac
 

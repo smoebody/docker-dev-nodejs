@@ -17,5 +17,3 @@ ADD assets /docker
 RUN chmod 755 /docker/build/init docker/init \
  && /docker/build/init \
  && rm /docker/build/devtools /docker/build/locale /docker/build/shell
-
-
