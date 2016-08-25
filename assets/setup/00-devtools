@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+
+if ! id ${APP_USER} &>/dev/null; then
+
+	# create user
+	useradd --create-home --home-dir /home/${APP_USER} --shell /bin/bash ${APP_USER}
+fi;
+
