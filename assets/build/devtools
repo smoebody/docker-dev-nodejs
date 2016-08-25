@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# create user
-useradd --create-home --shell /bin/bash ${APP_USER}
