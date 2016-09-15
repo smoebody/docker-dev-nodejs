@@ -1,0 +1,35 @@
+#!/bin/bash
+
+DOCKERHOST=$(ip route show | grep -e ^default | awk -F" " '{ print $3 }')
+
+##
+## setup defaults
+##
+SETUP_DIR="/docker/setup"
+
+LOG_DIR="/var/log"
+
+_setupRuntime() {
+    # set up what has to be set up
+    for i in `ls ${SETUP_DIR}`; do
+        echo "Setting up $i..."
+        source "${SETUP_DIR}/$i"
+    done
+}
+
+echo "Setting up runtime environment..."
+_setupRuntime
+
+case "$1" in
+    run)
+        echo "Starting npm ..."
+        su ${APP_USER} -c "cd ${APP_HOME};npm start"
+        ;;
+    *)
+        echo "Executing custom command ..."
+        cd "${APP_HOME}"
+        su ${APP_USER} -c "$*"
+        ;;
+esac
+
+exit 0

@@ -2,7 +2,7 @@
 FROM node:latest
 MAINTAINER ulf.seltmann@metaccount.de
 VOLUME ["/app"]
-ENTRYPOINT ["/docker/init"]
+ENTRYPOINT ["/docker/entrypoint"]
 CMD ["run"]
 
 # adding essentials
@@ -14,6 +14,6 @@ ENV APP_HOME=/app \
 	APP_USER=dev
 
 ADD assets /docker
-RUN chmod 755 /docker/build/init docker/init \
- && /docker/build/init \
- && rm /docker/build/locale /docker/build/shell
+RUN chmod 755 /docker/init docker/entrypoint \
+ && /docker/init \
+ && rm -rf /docker/build
