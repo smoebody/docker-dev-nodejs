@@ -1,7 +1,4 @@
-### Build and push with following command:
-# for label in 4 5 6 latest;do sed -e 's!__LABEL__!'$label'!' Dockerfile.tmpl >Dockerfile;docker build -t "docker.io/smoebody/dev-nodejs:${label}" .;docker --config ~/.docker_smoebody push "docker.io/smoebody/dev-nodejs:${label}";done
-### install node ###
-FROM node:__LABEL__
+FROM node:5
 MAINTAINER ulf.seltmann@metaccount.de
 VOLUME ["/app"]
 ENTRYPOINT ["/docker/entrypoint"]
