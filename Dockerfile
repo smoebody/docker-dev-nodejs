@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:0.10
 MAINTAINER ulf.seltmann@metaccount.de
 VOLUME ["/app"]
 ENTRYPOINT ["/docker/entrypoint"]
