@@ -9,9 +9,9 @@ APP_USER_HOME=`grep -e '^'${APP_USER} /etc/passwd | awk -F":" '{ print $6; }'`
 
 # we do not allow root to be the app user
 if [ "$APP_UID" == "0" -o "$APP_GID" == "0" ]; then
-		echo "Setting app user to UID:1000 and GID:1000 ..."
-		APP_UID="1000"
-		APP_GID="1000"
+		echo "Setting app home to app users UID and GID ..."
+		APP_UID=`id -u ${APP_USER}`
+		APP_GID=`id -g ${APP_USER}`
 		chown ${APP_UID}:${APP_GID} ${APP_HOME} -R
 fi;
 
