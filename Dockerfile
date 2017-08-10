@@ -11,7 +11,7 @@ RUN apt-get update \
 
 ENV APP_HOME=/app \
 	APP_USER=node \
-    APP_DATA_DIR=/var/lib/app \
+    APP_DATA_DIR=/media \
     APP_TMP_DIR=/tmp
 
 ADD assets /docker
