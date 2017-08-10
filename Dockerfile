@@ -10,7 +10,9 @@ RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y wget less vim locales graphicsmagick
 
 ENV APP_HOME=/app \
-	APP_USER=dev
+	APP_USER=node \
+    APP_DATA_DIR=/var/lib/app \
+    APP_TMP_DIR=/tmp
 
 ADD assets /docker
 RUN chmod 755 /docker/init docker/entrypoint \
