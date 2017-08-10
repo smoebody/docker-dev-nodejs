@@ -19,3 +19,9 @@ sed -e "s!^\(${APP_USER}:x\):[0-9]\+:[0-9]\+:\(.*\)\$!\1:${APP_UID}:${APP_GID}:\
 sed -e "s!^\(${APP_USER}:x\):[0-9]\+:\(.*\)\$!\1:${APP_GID}:\2!" -i /etc/group
 
 chown ${APP_USER}:${APP_USER} ${APP_USER_HOME} -R
+
+echo "Fixing owner of app datadir ..."
+chown "${APP_USER}":"${APP_USER}" "${APP_DATA_DIR}"
+
+echo "Fixing permissions of app tmpdir ..."
+chmod go+w "${APP_TMP_DIR}"
