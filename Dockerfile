@@ -15,6 +15,6 @@ ENV APP_HOME=/app \
     APP_TMP_DIR=/tmp
 
 ADD assets /docker
-RUN chmod 755 /docker/init docker/entrypoint \
- && /docker/init \
+RUN chmod 755 /docker/init /docker/entrypoint
+RUN /docker/init \
  && rm -rf /docker/build
